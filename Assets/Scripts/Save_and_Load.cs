@@ -18,7 +18,7 @@ public class Save_and_Load<T>
     {
         if (s != "")
         {
-            FileStream SaveFile = File.Create(@"..\..\SavedTeamFiles\" + s + ".bin");
+            FileStream SaveFile = File.Create(@"..\ADGP-125-Unity\Assets\SavedTeamFiles\" + s + ".xml");
             XmlSerializer bf = new XmlSerializer(typeof(T));
             bf.Serialize(SaveFile, info);
             SaveFile.Close();
@@ -30,14 +30,14 @@ public class Save_and_Load<T>
         T MalleableVar;
         if (s != "")
         {
-            FileStream LoadFile = File.OpenRead(@"..\..\SavedTeamFiles\" + s + ".bin");
+            FileStream LoadFile = File.OpenRead(@"..\ADGP-125-Unity\Assets\SavedTeamFiles\" + s + ".xml");
             XmlSerializer bf = new XmlSerializer(typeof(T));
             MalleableVar = (T)bf.Deserialize(LoadFile);
             LoadFile.Close();
         }
         else
         {
-            FileStream LoadFile = File.OpenRead(@"..\..\SavedTeamFiles\Empty.XML");
+            FileStream LoadFile = File.OpenRead(@"..\ADGP-125-Unity\Assets\SavedTeamFiles\Empty.xml");
             XmlSerializer bf = new XmlSerializer(typeof(T));
             MalleableVar = (T)bf.Deserialize(LoadFile);
             LoadFile.Close();
